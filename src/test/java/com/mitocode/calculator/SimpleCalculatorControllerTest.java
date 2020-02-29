@@ -65,7 +65,7 @@ class SimpleCalculatorControllerTest {
 		int num2 = 3;
 		int res = 3;
 		String expectedString = num1 + " / " + num2 + " = " + res;
-		MvcResult mvcResult = mvc.perform(get("/api/div/{num1}/{num2}").contentType(MediaType.TEXT_PLAIN_VALUE))
+		MvcResult mvcResult = mvc.perform(get("/api/div/{num1}/{num2}",num1,num2).contentType(MediaType.TEXT_PLAIN_VALUE))
 				.andExpect(status().isOk()).andReturn();
 		String responseString = mvcResult.getResponse().getContentAsString();
 		assertEquals(expectedString, responseString);

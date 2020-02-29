@@ -15,8 +15,7 @@
 		</parent>
 
 		<properties>
-				<maven.compiler.source>1.8</maven.compiler.source>
-				<maven.compiler.target>1.8</maven.compiler.target>
+				<java.version>11</java.version>
 				<swagger.version>1.5.9</swagger.version>
 				<springfox.version>2.5.0</springfox.version>
 		</properties>
@@ -55,7 +54,7 @@
 		</dependencies>
 
 		<build>
-				<finalName>${artifactId}</finalName>
+				<finalName>${project.artifactId}</finalName>
 				<plugins>
 						<plugin>
 								<groupId>org.springframework.boot</groupId>
