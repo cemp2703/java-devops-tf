@@ -1,0 +1,7 @@
+version: '3.1'
+
+services:
+  api:
+    image: cemp2703/app-java-devops:0.2
+    ports:
+      - 8912:5000
