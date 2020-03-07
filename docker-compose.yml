@@ -4,4 +4,4 @@ services:
   api:
     image: cemp2703/app-java-devops:0.2
     ports:
-      - 8912:5000
+      - 8080:8080
