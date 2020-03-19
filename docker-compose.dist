@@ -1,0 +1,14 @@
+version: '3.1'
+
+services:
+  api:
+    image: {{BACKEND_DOCKER_IMAGE}}
+    restart: always
+    networks:
+      - apinet
+    ports:
+      - 9998:8080
+
+networks:
+  apinet:
+    driver: bridge

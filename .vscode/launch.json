@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SimpleCalculatorApplication<mitocode-calculator>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.mitocode.calculator.SimpleCalculatorApplication",
+            "projectName": "mitocode-calculator",
+            "args": ""
+        }
+    ]
+}
