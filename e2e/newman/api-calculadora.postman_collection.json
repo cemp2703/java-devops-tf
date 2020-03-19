@@ -11,15 +11,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/add/1/2",
+					"raw": "{{url}}/api/add/{{num1}}/{{num2}}",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"add",
-						"1",
-						"2"
+						"{{num1}}",
+						"{{num2}}"
 					]
 				},
 				"description": "Sumar 2 numeros"
@@ -93,18 +93,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/div/9/3",
+					"raw": "{{url}}/api/div/{{num1}}/{{num2}}",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"div",
-						"9",
-						"3"
+						"{{num1}}",
+						"{{num2}}"
 					]
 				},
-				"description": "Sumar 2 numeros"
+				"description": "Dividir 2 numeros"
 			},
 			"response": [
 				{
@@ -175,18 +175,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/mul/9/3",
+					"raw": "{{url}}/api/mul/{{num1}}/{{num2}}",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"mul",
-						"9",
-						"3"
+						"{{num1}}",
+						"{{num2}}"
 					]
 				},
-				"description": "Sumar 2 numeros"
+				"description": "Multiplicar 2 numeros"
 			},
 			"response": [
 				{
@@ -257,18 +257,18 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{url}}/api/sub/9/3",
+					"raw": "{{url}}/api/sub/{{num1}}/{{num2}}",
 					"host": [
 						"{{url}}"
 					],
 					"path": [
 						"api",
 						"sub",
-						"9",
-						"3"
+						"{{num1}}",
+						"{{num2}}"
 					]
 				},
-				"description": "Sumar 2 numeros"
+				"description": "Restar 2 numeros"
 			},
 			"response": [
 				{
@@ -354,14 +354,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"id": "56b15b18-6d8c-447d-af46-f9dbc90a0192",
-			"key": "url",
-			"value": "http://localhost",
-			"type": "string"
 		}
 	],
 	"protocolProfileBehavior": {}

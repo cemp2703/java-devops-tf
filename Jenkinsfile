@@ -8,7 +8,7 @@ pipeline {
         // internal parameters (docker)
         EPHEMERAL_HOST = "${params.EPHEMERAL_HOST}"
         CONTAINER_BACKEND_PATH = "${params.CONTAINER_BACKEND_PATH}"
-        API_EPHEMERAL_URL = "http://${EPHEMERAL_HOST}:9998"
+        API_EPHEMERAL_URL = "http://${EPHEMERAL_HOST}:8080"
         // external test parameters
         API_URL_NEWMAN = "${API_EPHEMERAL_URL}"
     }
@@ -64,7 +64,7 @@ pipeline {
             steps {
                 echo "Testing Newman"
                 dir("${env.WORKSPACE}/e2e/newman") {
-                    sh 'newman run api-calculadora.postman_collection.json'
+                    sh "newman run api-calculadora.postman_collection.json -e CLOUD.postman_environment.json --env-var 'url=${API_EPHEMERAL_URL}'"
                 }
             }
         }
