@@ -59,7 +59,7 @@ pipeline {
 
         stage("External testing Newman") {
             agent {
-               docker { image 'postman/newman:alpine' }
+               docker { image 'postman/newman' }
             }
             steps {
                 echo "Testing Newman"
