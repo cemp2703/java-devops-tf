@@ -1,0 +1,858 @@
+Lanzada por el usuario admin
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Internal testing)
+[Pipeline] node
+Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker inspect -f . maven:3.6.3-jdk-11-slim
+.
+[Pipeline] withDockerContainer
+Jenkins  does not seem to be running inside a container
+$ docker run -t -d -u 114:125 -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.6.3-jdk-11-slim cat
+$ docker top bd69316c393d9386c8d6724c0cea682d1ce1e0ec3b520c8b9a4f39b98087145f -eo pid,comm
+[Pipeline] {
+[Pipeline] sh
++ mvn --version
+Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
+Maven home: /usr/share/maven
+Java version: 11.0.6, vendor: Oracle Corporation, runtime: /usr/local/openjdk-11
+Default locale: en, platform encoding: UTF-8
+OS name: "linux", version: "4.8.0-36-generic", arch: "amd64", family: "unix"
+[Pipeline] sh
++ echo Iniciando pruebas
+Iniciando pruebas
+[Pipeline] sh
++ cd /tmp
++ ls
+hsperfdata_root
+[Pipeline] sh
++ echo Obteniendo dependencias
+Obteniendo dependencias
+[Pipeline] sh
++ mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.0.2:go-offline
+[INFO] Error stacktraces are turned on.
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] Using the MultiThreadedBuilder implementation with a thread count of 2
+[INFO] 
+[INFO] ------------------< com.mitocode:mitocode-calculator >------------------
+[INFO] Building mitocode-calculator 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] >>> maven-dependency-plugin:3.0.2:go-offline (default-cli) > :resolve-plugins @ mitocode-calculator >>>
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.0.2:resolve-plugins (resolve-plugins) @ mitocode-calculator ---
+[INFO] 
+[INFO] The following plugins have been resolved:
+[INFO]    org.springframework.boot:spring-boot-maven-plugin:maven-plugin:2.2.4.RELEASE:runtime
+[INFO]       org.springframework.boot:spring-boot-maven-plugin:jar:2.2.4.RELEASE
+[INFO]       org.springframework.boot:spring-boot-loader-tools:jar:2.2.4.RELEASE
+[INFO]       org.springframework:spring-core:jar:5.2.3.RELEASE
+[INFO]       org.springframework:spring-jcl:jar:5.2.3.RELEASE
+[INFO]       org.apache.commons:commons-compress:jar:1.19
+[INFO]       org.apache.maven:maven-archiver:jar:3.4.0
+[INFO]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[INFO]       commons-io:commons-io:jar:2.5
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.25
+[INFO]       org.apache.maven:maven-artifact:jar:3.3.9
+[INFO]       org.apache.commons:commons-lang3:jar:3.9
+[INFO]       org.apache.maven:maven-core:jar:3.3.9
+[INFO]       org.apache.maven:maven-settings-builder:jar:3.3.9
+[INFO]       org.apache.maven:maven-builder-support:jar:3.3.9
+[INFO]       org.apache.maven:maven-repository-metadata:jar:3.3.9
+[INFO]       org.apache.maven:maven-model-builder:jar:3.3.9
+[INFO]       org.apache.maven:maven-aether-provider:jar:3.3.9
+[INFO]       org.eclipse.aether:aether-spi:jar:1.0.2.v20150114
+[INFO]       org.eclipse.aether:aether-impl:jar:1.0.2.v20150114
+[INFO]       org.eclipse.aether:aether-api:jar:1.0.2.v20150114
+[INFO]       org.eclipse.aether:aether-util:jar:1.0.2.v20150114
+[INFO]       org.eclipse.sisu:org.eclipse.sisu.plexus:jar:0.3.2
+[INFO]       org.eclipse.sisu:org.eclipse.sisu.inject:jar:0.3.2
+[INFO]       com.google.inject:guice:jar:no_aop:4.0
+[INFO]       javax.inject:javax.inject:jar:1
+[INFO]       aopalliance:aopalliance:jar:1.0
+[INFO]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2
+[INFO]       org.codehaus.plexus:plexus-component-annotations:jar:1.6
+[INFO]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[INFO]       org.sonatype.plexus:plexus-cipher:jar:1.4
+[INFO]       org.apache.maven:maven-model:jar:3.3.9
+[INFO]       org.apache.maven:maven-plugin-api:jar:3.3.9
+[INFO]       org.apache.maven:maven-settings:jar:3.3.9
+[INFO]       org.apache.maven.shared:maven-common-artifact-filters:jar:3.1.0
+[INFO]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[INFO]       org.codehaus.plexus:plexus-archiver:jar:3.7.0
+[INFO]       org.codehaus.plexus:plexus-io:jar:3.1.0
+[INFO]       org.iq80.snappy:snappy:jar:0.4
+[INFO]       org.tukaani:xz:jar:1.8
+[INFO]       org.codehaus.plexus:plexus-utils:jar:3.1.0
+[INFO]       org.sonatype.plexus:plexus-build-api:jar:0.0.7
+[INFO]       org.apache.maven.plugins:maven-shade-plugin:jar:3.2.1
+[INFO]       org.apache.maven.shared:maven-artifact-transfer:jar:0.10.0
+[INFO]       commons-codec:commons-codec:jar:1.13
+[INFO]       org.slf4j:slf4j-api:jar:1.7.30
+[INFO]       org.ow2.asm:asm:jar:7.0
+[INFO]       org.ow2.asm:asm-commons:jar:7.0
+[INFO]       org.ow2.asm:asm-tree:jar:7.0
+[INFO]       org.ow2.asm:asm-analysis:jar:7.0
+[INFO]       org.jdom:jdom2:jar:2.0.6
+[INFO]       org.apache.maven.shared:maven-dependency-tree:jar:3.0.1
+[INFO]       org.vafer:jdependency:jar:2.1.1
+[INFO]       org.ow2.asm:asm-util:jar:7.0-beta
+[INFO]       com.google.guava:guava:jar:19.0
+[INFO]    org.apache.maven.plugins:maven-clean-plugin:maven-plugin:3.1.0:runtime
+[INFO]       org.apache.maven.plugins:maven-clean-plugin:jar:3.1.0
+[INFO]       org.apache.maven:maven-plugin-api:jar:3.0
+[INFO]       org.apache.maven:maven-model:jar:3.0
+[INFO]       org.codehaus.plexus:plexus-utils:jar:2.0.4
+[INFO]       org.apache.maven:maven-artifact:jar:3.0
+[INFO]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2
+[INFO]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[INFO]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3
+[INFO]       org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[INFO]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[INFO]       commons-io:commons-io:jar:2.5
+[INFO]    org.apache.maven.plugins:maven-jar-plugin:maven-plugin:3.1.2:runtime
+[INFO]       org.apache.maven.plugins:maven-jar-plugin:jar:3.1.2
+[INFO]       org.apache.maven:maven-plugin-api:jar:3.0
+[INFO]       org.apache.maven:maven-model:jar:3.0
+[INFO]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[INFO]       org.apache.maven:maven-core:jar:3.0
+[INFO]       org.apache.maven:maven-settings:jar:3.0
+[INFO]       org.apache.maven:maven-settings-builder:jar:3.0
+[INFO]       org.apache.maven:maven-repository-metadata:jar:3.0
+[INFO]       org.apache.maven:maven-model-builder:jar:3.0
+[INFO]       org.apache.maven:maven-aether-provider:jar:3.0
+[INFO]       org.sonatype.aether:aether-impl:jar:1.7
+[INFO]       org.sonatype.aether:aether-spi:jar:1.7
+[INFO]       org.sonatype.aether:aether-api:jar:1.7
+[INFO]       org.sonatype.aether:aether-util:jar:1.7
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.14
+[INFO]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3
+[INFO]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[INFO]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[INFO]       org.sonatype.plexus:plexus-cipher:jar:1.4
+[INFO]       org.apache.maven:maven-artifact:jar:3.0
+[INFO]       org.apache.maven.shared:file-management:jar:3.0.0
+[INFO]       org.apache.maven.shared:maven-shared-io:jar:3.0.0
+[INFO]       org.apache.maven:maven-compat:jar:3.0
+[INFO]       org.apache.maven.wagon:wagon-provider-api:jar:2.10
+[INFO]       org.apache.maven:maven-archiver:jar:3.4.0
+[INFO]       commons-io:commons-io:jar:2.5
+[INFO]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[INFO]       org.codehaus.plexus:plexus-archiver:jar:4.1.0
+[INFO]       org.codehaus.plexus:plexus-io:jar:3.1.1
+[INFO]       org.apache.commons:commons-compress:jar:1.18
+[INFO]       org.iq80.snappy:snappy:jar:0.4
+[INFO]       org.tukaani:xz:jar:1.8
+[INFO]       org.codehaus.plexus:plexus-utils:jar:3.2.0
+[INFO]    org.apache.maven.plugins:maven-resources-plugin:maven-plugin:3.1.0:runtime
+[INFO]       org.apache.maven.plugins:maven-resources-plugin:jar:3.1.0
+[INFO]       org.apache.maven:maven-plugin-api:jar:3.0
+[INFO]       org.apache.maven:maven-artifact:jar:3.0
+[INFO]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[INFO]       org.apache.maven:maven-core:jar:3.0
+[INFO]       org.apache.maven:maven-settings:jar:3.0
+[INFO]       org.apache.maven:maven-settings-builder:jar:3.0
+[INFO]       org.apache.maven:maven-repository-metadata:jar:3.0
+[INFO]       org.apache.maven:maven-model-builder:jar:3.0
+[INFO]       org.apache.maven:maven-aether-provider:jar:3.0
+[INFO]       org.sonatype.aether:aether-impl:jar:1.7
+[INFO]       org.sonatype.aether:aether-spi:jar:1.7
+[INFO]       org.sonatype.aether:aether-api:jar:1.7
+[INFO]       org.sonatype.aether:aether-util:jar:1.7
+[INFO]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3
+[INFO]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[INFO]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[INFO]       org.sonatype.plexus:plexus-cipher:jar:1.4
+[INFO]       org.apache.maven:maven-model:jar:3.0
+[INFO]       org.codehaus.plexus:plexus-utils:jar:3.1.0
+[INFO]       org.apache.maven.shared:maven-filtering:jar:3.1.1
+[INFO]       org.apache.maven.shared:maven-shared-utils:jar:3.0.0
+[INFO]       com.google.code.findbugs:jsr305:jar:2.0.1
+[INFO]       org.sonatype.plexus:plexus-build-api:jar:0.0.7
+[INFO]       commons-io:commons-io:jar:2.5
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.24
+[INFO]    org.apache.maven.plugins:maven-site-plugin:maven-plugin:3.8.2:runtime
+[INFO]       org.apache.maven.plugins:maven-site-plugin:jar:3.8.2
+[INFO]       commons-logging:commons-logging:jar:1.1
+[INFO]       log4j:log4j:jar:1.2.12
+[INFO]       logkit:logkit:jar:1.0.1
+[INFO]       avalon-framework:avalon-framework:jar:4.1.3
+[INFO]       org.apache.maven.reporting:maven-reporting-exec:jar:1.4
+[INFO]       org.apache.maven.reporting:maven-reporting-api:jar:3.0
+[INFO]       org.apache.maven:maven-artifact:jar:3.0
+[INFO]       org.sonatype.aether:aether-util:jar:1.7
+[INFO]       org.eclipse.aether:aether-util:jar:0.9.0.M2
+[INFO]       org.apache.maven.shared:maven-shared-utils:jar:3.1.0
+[INFO]       org.apache.maven:maven-core:jar:3.0
+[INFO]       org.apache.maven:maven-repository-metadata:jar:3.0
+[INFO]       org.apache.maven:maven-model-builder:jar:3.0
+[INFO]       org.apache.maven:maven-aether-provider:jar:3.0
+[INFO]       org.sonatype.aether:aether-impl:jar:1.7
+[INFO]       org.sonatype.aether:aether-spi:jar:1.7
+[INFO]       org.sonatype.aether:aether-api:jar:1.7
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.14
+[INFO]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[INFO]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[INFO]       org.sonatype.plexus:plexus-cipher:jar:1.4
+[INFO]       org.apache.maven:maven-model:jar:3.0
+[INFO]       org.apache.maven:maven-plugin-api:jar:3.0
+[INFO]       org.apache.maven:maven-settings:jar:3.0
+[INFO]       org.apache.maven:maven-settings-builder:jar:3.0
+[INFO]       org.apache.maven:maven-archiver:jar:3.1.1
+[INFO]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[INFO]       org.codehaus.plexus:plexus-archiver:jar:3.4
+[INFO]       org.codehaus.plexus:plexus-io:jar:2.7.1
+[INFO]       org.apache.commons:commons-compress:jar:1.11
+[INFO]       org.iq80.snappy:snappy:jar:0.4
+[INFO]       org.tukaani:xz:jar:1.5
+[INFO]       org.codehaus.plexus:plexus-i18n:jar:1.0-beta-10
+[INFO]       org.codehaus.plexus:plexus-utils:jar:3.0.24
+[INFO]       org.codehaus.plexus:plexus-classworlds:jar:2.5.2
+[INFO]       org.apache.maven.doxia:doxia-sink-api:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-logging-api:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-core:jar:1.9
+[INFO]       org.codehaus.plexus:plexus-container-default:jar:1.7.1
+[INFO]       org.apache.xbean:xbean-reflect:jar:3.7
+[INFO]       com.google.collections:google-collections:jar:1.0
+[INFO]       org.apache.httpcomponents:httpclient:jar:4.5.8
+[INFO]       commons-codec:commons-codec:jar:1.11
+[INFO]       org.apache.httpcomponents:httpcore:jar:4.4.11
+[INFO]       org.apache.maven.doxia:doxia-module-xhtml:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-module-xhtml5:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-module-apt:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-module-xdoc:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-module-fml:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-module-markdown:jar:1.9
+[INFO]       com.vladsch.flexmark:flexmark-all:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-abbreviation:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-admonition:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-anchorlink:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-aside:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-attributes:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-autolink:jar:0.42.8
+[INFO]       org.nibor.autolink:autolink:jar:0.6.0
+[INFO]       com.vladsch.flexmark:flexmark-ext-definition:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-emoji:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-enumerated-reference:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-escaped-character:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-footnotes:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-gfm-issues:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-gfm-strikethrough:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-gfm-tables:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-gfm-tasklist:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-gfm-users:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-gitlab:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-jekyll-front-matter:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-jekyll-tag:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-media-tags:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-macros:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-ins:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-xwiki-macros:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-superscript:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-tables:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-toc:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-typographic:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-wikilink:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-yaml-front-matter:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-ext-youtube-embedded:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-formatter:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-html-parser:jar:0.42.8
+[INFO]       org.jsoup:jsoup:jar:1.10.2
+[INFO]       com.vladsch.flexmark:flexmark-jira-converter:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-profile-pegdown:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-util:jar:0.42.8
+[INFO]       com.vladsch.flexmark:flexmark-youtrack-converter:jar:0.42.8
+[INFO]       org.apache.maven.doxia:doxia-module-confluence:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-module-docbook-simple:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-module-twiki:jar:1.9
+[INFO]       org.apache.maven.doxia:doxia-decoration-model:jar:1.9.1
+[INFO]       org.apache.maven.doxia:doxia-site-renderer:jar:1.9.1
+[INFO]       org.apache.maven.doxia:doxia-skin-model:jar:1.9.1
+[INFO]       org.codehaus.plexus:plexus-velocity:jar:1.2
+[INFO]       org.apache.velocity:velocity:jar:1.7
+[INFO]       commons-lang:commons-lang:jar:2.4
+[INFO]       org.apache.velocity:velocity-tools:jar:2.0
+[INFO]       commons-beanutils:commons-beanutils:jar:1.7.0
+[INFO]       commons-digester:commons-digester:jar:1.8
+[INFO]       commons-chain:commons-chain:jar:1.1
+[INFO]       commons-validator:commons-validator:jar:1.3.1
+[INFO]       dom4j:dom4j:jar:1.1
+[INFO]       oro:oro:jar:2.0.8
+[INFO]       sslext:sslext:jar:1.2-0
+[INFO]       org.apache.struts:struts-core:jar:1.3.8
+[INFO]       antlr:antlr:jar:2.7.2
+[INFO]       org.apache.struts:struts-taglib:jar:1.3.8
+[INFO]       org.apache.struts:struts-tiles:jar:1.3.8
+[INFO]       commons-collections:commons-collections:jar:3.2.2
+[INFO]       org.apache.maven.doxia:doxia-integration-tools:jar:1.9.1
+[INFO]       org.apache.maven.wagon:wagon-provider-api:jar:3.3.1
+[INFO]       org.eclipse.jetty:jetty-server:jar:9.2.28.v20190418
+[INFO]       javax.servlet:javax.servlet-api:jar:3.1.0
+[INFO]       org.eclipse.jetty:jetty-http:jar:9.2.28.v20190418
+[INFO]       org.eclipse.jetty:jetty-io:jar:9.2.28.v20190418
+[INFO]       org.eclipse.jetty:jetty-servlet:jar:9.2.28.v20190418
+[INFO]       org.eclipse.jetty:jetty-security:jar:9.2.28.v20190418
+[INFO]       org.eclipse.jetty:jetty-webapp:jar:9.2.28.v20190418
+[INFO]       org.eclipse.jetty:jetty-xml:jar:9.2.28.v20190418
+[INFO]       org.eclipse.jetty:jetty-util:jar:9.2.28.v20190418
+[INFO]       org.apache.commons:commons-lang3:jar:3.4
+[INFO]       commons-io:commons-io:jar:2.5
+[INFO]    org.apache.maven.plugins:maven-compiler-plugin:maven-plugin:3.8.1:runtime
+[INFO]       org.apache.maven.plugins:maven-compiler-plugin:jar:3.8.1
+[INFO]       org.apache.maven:maven-plugin-api:jar:3.0
+[INFO]       org.apache.maven:maven-model:jar:3.0
+[INFO]       org.sonatype.sisu:sisu-inject-plexus:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-inject-bean:jar:1.4.2
+[INFO]       org.sonatype.sisu:sisu-guice:jar:noaop:2.1.7
+[INFO]       org.apache.maven:maven-artifact:jar:3.0
+[INFO]       org.codehaus.plexus:plexus-utils:jar:2.0.4
+[INFO]       org.apache.maven:maven-core:jar:3.0
+[INFO]       org.apache.maven:maven-settings:jar:3.0
+[INFO]       org.apache.maven:maven-settings-builder:jar:3.0
+[INFO]       org.apache.maven:maven-repository-metadata:jar:3.0
+[INFO]       org.apache.maven:maven-model-builder:jar:3.0
+[INFO]       org.apache.maven:maven-aether-provider:jar:3.0
+[INFO]       org.sonatype.aether:aether-impl:jar:1.7
+[INFO]       org.sonatype.aether:aether-spi:jar:1.7
+[INFO]       org.sonatype.aether:aether-api:jar:1.7
+[INFO]       org.sonatype.aether:aether-util:jar:1.7
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.14
+[INFO]       org.codehaus.plexus:plexus-classworlds:jar:2.2.3
+[INFO]       org.codehaus.plexus:plexus-component-annotations:jar:1.7.1
+[INFO]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[INFO]       org.sonatype.plexus:plexus-cipher:jar:1.4
+[INFO]       org.apache.maven.shared:maven-shared-utils:jar:3.2.1
+[INFO]       commons-io:commons-io:jar:2.5
+[INFO]       org.apache.maven.shared:maven-shared-incremental:jar:1.1
+[INFO]       org.codehaus.plexus:plexus-java:jar:0.9.10
+[INFO]       org.ow2.asm:asm:jar:6.2
+[INFO]       com.thoughtworks.qdox:qdox:jar:2.0-M9
+[INFO]       org.codehaus.plexus:plexus-compiler-api:jar:2.8.4
+[INFO]       org.codehaus.plexus:plexus-compiler-manager:jar:2.8.4
+[INFO]       org.codehaus.plexus:plexus-compiler-javac:jar:2.8.4
+[INFO]    org.apache.maven.plugins:maven-surefire-plugin:maven-plugin:2.22.2:runtime
+[INFO]       org.apache.maven.plugins:maven-surefire-plugin:jar:2.22.2
+[INFO]       org.apache.maven.surefire:maven-surefire-common:jar:2.22.2
+[INFO]       org.apache.maven:maven-plugin-api:jar:2.2.1
+[INFO]       org.apache.maven.plugin-tools:maven-plugin-annotations:jar:3.5.2
+[INFO]       org.apache.maven.surefire:surefire-api:jar:2.22.2
+[INFO]       org.apache.maven.surefire:surefire-logger-api:jar:2.22.2
+[INFO]       org.apache.maven.surefire:surefire-booter:jar:2.22.2
+[INFO]       org.apache.maven:maven-artifact:jar:2.2.1
+[INFO]       org.codehaus.plexus:plexus-utils:jar:1.5.15
+[INFO]       org.apache.maven:maven-plugin-descriptor:jar:2.2.1
+[INFO]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[INFO]       junit:junit:jar:4.12
+[INFO]       org.hamcrest:hamcrest-core:jar:1.3
+[INFO]       org.apache.maven:maven-project:jar:2.2.1
+[INFO]       org.apache.maven:maven-settings:jar:2.2.1
+[INFO]       org.apache.maven:maven-profile:jar:2.2.1
+[INFO]       org.apache.maven:maven-artifact-manager:jar:2.2.1
+[INFO]       backport-util-concurrent:backport-util-concurrent:jar:3.1
+[INFO]       org.apache.maven:maven-plugin-registry:jar:2.2.1
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.11
+[INFO]       org.apache.maven:maven-model:jar:2.2.1
+[INFO]       org.apache.maven:maven-core:jar:2.2.1
+[INFO]       org.apache.maven:maven-plugin-parameter-documenter:jar:2.2.1
+[INFO]       org.apache.maven.wagon:wagon-http:jar:1.0-beta-6
+[INFO]       org.apache.maven.wagon:wagon-http-shared:jar:1.0-beta-6
+[INFO]       nekohtml:xercesMinimal:jar:1.9.6.2
+[INFO]       nekohtml:nekohtml:jar:1.9.6.2
+[INFO]       commons-httpclient:commons-httpclient:jar:3.1
+[INFO]       commons-codec:commons-codec:jar:1.2
+[INFO]       org.apache.maven.wagon:wagon-webdav-jackrabbit:jar:1.0-beta-6
+[INFO]       org.apache.jackrabbit:jackrabbit-webdav:jar:1.5.0
+[INFO]       org.apache.jackrabbit:jackrabbit-jcr-commons:jar:1.5.0
+[INFO]       org.slf4j:slf4j-nop:jar:1.5.3
+[INFO]       org.slf4j:slf4j-jdk14:jar:1.5.6
+[INFO]       org.slf4j:slf4j-api:jar:1.5.6
+[INFO]       org.slf4j:jcl-over-slf4j:jar:1.5.6
+[INFO]       org.apache.maven.reporting:maven-reporting-api:jar:3.0
+[INFO]       org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6
+[INFO]       org.apache.maven:maven-repository-metadata:jar:2.2.1
+[INFO]       org.apache.maven:maven-error-diagnostics:jar:2.2.1
+[INFO]       org.apache.maven:maven-monitor:jar:2.2.1
+[INFO]       classworlds:classworlds:jar:1.1
+[INFO]       org.sonatype.plexus:plexus-sec-dispatcher:jar:1.3
+[INFO]       org.sonatype.plexus:plexus-cipher:jar:1.4
+[INFO]       org.apache.maven:maven-toolchain:jar:2.2.1
+[INFO]       org.codehaus.plexus:plexus-java:jar:0.9.10
+[INFO]       org.ow2.asm:asm:jar:6.2
+[INFO]       com.thoughtworks.qdox:qdox:jar:2.0-M8
+[INFO]    org.apache.maven.plugins:maven-install-plugin:maven-plugin:2.5.2:runtime
+[INFO]       org.apache.maven.plugins:maven-install-plugin:jar:2.5.2
+[INFO]       org.apache.maven:maven-plugin-api:jar:2.2.1
+[INFO]       org.apache.maven:maven-project:jar:2.2.1
+[INFO]       org.apache.maven:maven-settings:jar:2.2.1
+[INFO]       org.apache.maven:maven-profile:jar:2.2.1
+[INFO]       org.apache.maven:maven-plugin-registry:jar:2.2.1
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.11
+[INFO]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[INFO]       junit:junit:jar:3.8.1
+[INFO]       classworlds:classworlds:jar:1.1-alpha-2
+[INFO]       org.apache.maven:maven-model:jar:2.2.1
+[INFO]       org.apache.maven:maven-artifact-manager:jar:2.2.1
+[INFO]       org.apache.maven:maven-repository-metadata:jar:2.2.1
+[INFO]       org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6
+[INFO]       backport-util-concurrent:backport-util-concurrent:jar:3.1
+[INFO]       org.apache.maven:maven-artifact:jar:2.2.1
+[INFO]       commons-codec:commons-codec:jar:1.6
+[INFO]       org.apache.maven.shared:maven-shared-utils:jar:0.4
+[INFO]       com.google.code.findbugs:jsr305:jar:2.0.1
+[INFO]       org.codehaus.plexus:plexus-utils:jar:3.0.15
+[INFO]    org.apache.maven.plugins:maven-deploy-plugin:maven-plugin:2.8.2:runtime
+[INFO]       org.apache.maven.plugins:maven-deploy-plugin:jar:2.8.2
+[INFO]       org.apache.maven:maven-plugin-api:jar:2.2.1
+[INFO]       org.apache.maven:maven-project:jar:2.2.1
+[INFO]       org.apache.maven:maven-settings:jar:2.2.1
+[INFO]       org.apache.maven:maven-profile:jar:2.2.1
+[INFO]       org.apache.maven:maven-artifact-manager:jar:2.2.1
+[INFO]       org.apache.maven:maven-repository-metadata:jar:2.2.1
+[INFO]       org.apache.maven.wagon:wagon-provider-api:jar:1.0-beta-6
+[INFO]       backport-util-concurrent:backport-util-concurrent:jar:3.1
+[INFO]       org.apache.maven:maven-plugin-registry:jar:2.2.1
+[INFO]       org.codehaus.plexus:plexus-interpolation:jar:1.11
+[INFO]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9-stable-1
+[INFO]       junit:junit:jar:3.8.1
+[INFO]       classworlds:classworlds:jar:1.1-alpha-2
+[INFO]       org.apache.maven:maven-model:jar:2.2.1
+[INFO]       org.apache.maven:maven-artifact:jar:2.2.1
+[INFO]       org.codehaus.plexus:plexus-utils:jar:3.0.15
+[INFO] 
+[INFO] 
+[INFO] <<< maven-dependency-plugin:3.0.2:go-offline (default-cli) < :resolve-plugins @ mitocode-calculator <<<
+[INFO] 
+[INFO] 
+[INFO] --- maven-dependency-plugin:3.0.2:go-offline (default-cli) @ mitocode-calculator ---
+[INFO] Resolved: spring-boot-starter-web-2.2.4.RELEASE.jar
+[INFO] Resolved: spring-boot-starter-2.2.4.RELEASE.jar
+[INFO] Resolved: spring-boot-2.2.4.RELEASE.jar
+[INFO] Resolved: spring-boot-autoconfigure-2.2.4.RELEASE.jar
+[INFO] Resolved: spring-boot-starter-logging-2.2.4.RELEASE.jar
+[INFO] Resolved: logback-classic-1.2.3.jar
+[INFO] Resolved: logback-core-1.2.3.jar
+[INFO] Resolved: log4j-to-slf4j-2.12.1.jar
+[INFO] Resolved: log4j-api-2.12.1.jar
+[INFO] Resolved: jul-to-slf4j-1.7.30.jar
+[INFO] Resolved: jakarta.annotation-api-1.3.5.jar
+[INFO] Resolved: snakeyaml-1.25.jar
+[INFO] Resolved: spring-boot-starter-json-2.2.4.RELEASE.jar
+[INFO] Resolved: jackson-databind-2.10.2.jar
+[INFO] Resolved: jackson-core-2.10.2.jar
+[INFO] Resolved: jackson-datatype-jdk8-2.10.2.jar
+[INFO] Resolved: jackson-datatype-jsr310-2.10.2.jar
+[INFO] Resolved: jackson-module-parameter-names-2.10.2.jar
+[INFO] Resolved: spring-boot-starter-tomcat-2.2.4.RELEASE.jar
+[INFO] Resolved: tomcat-embed-core-9.0.30.jar
+[INFO] Resolved: tomcat-embed-el-9.0.30.jar
+[INFO] Resolved: tomcat-embed-websocket-9.0.30.jar
+[INFO] Resolved: spring-boot-starter-validation-2.2.4.RELEASE.jar
+[INFO] Resolved: jakarta.validation-api-2.0.2.jar
+[INFO] Resolved: hibernate-validator-6.0.18.Final.jar
+[INFO] Resolved: jboss-logging-3.4.1.Final.jar
+[INFO] Resolved: spring-web-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-beans-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-webmvc-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-aop-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-context-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-expression-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-boot-starter-test-2.2.4.RELEASE.jar
+[INFO] Resolved: spring-boot-test-2.2.4.RELEASE.jar
+[INFO] Resolved: spring-boot-test-autoconfigure-2.2.4.RELEASE.jar
+[INFO] Resolved: json-path-2.4.0.jar
+[INFO] Resolved: json-smart-2.3.jar
+[INFO] Resolved: accessors-smart-1.2.jar
+[INFO] Resolved: asm-5.0.4.jar
+[INFO] Resolved: jakarta.xml.bind-api-2.3.2.jar
+[INFO] Resolved: jakarta.activation-api-1.2.1.jar
+[INFO] Resolved: junit-jupiter-5.5.2.jar
+[INFO] Resolved: junit-jupiter-api-5.5.2.jar
+[INFO] Resolved: opentest4j-1.2.0.jar
+[INFO] Resolved: junit-platform-commons-1.5.2.jar
+[INFO] Resolved: junit-jupiter-params-5.5.2.jar
+[INFO] Resolved: junit-jupiter-engine-5.5.2.jar
+[INFO] Resolved: junit-vintage-engine-5.5.2.jar
+[INFO] Resolved: apiguardian-api-1.1.0.jar
+[INFO] Resolved: junit-platform-engine-1.5.2.jar
+[INFO] Resolved: junit-4.12.jar
+[INFO] Resolved: mockito-junit-jupiter-3.1.0.jar
+[INFO] Resolved: assertj-core-3.13.2.jar
+[INFO] Resolved: hamcrest-2.1.jar
+[INFO] Resolved: mockito-core-3.1.0.jar
+[INFO] Resolved: byte-buddy-1.10.6.jar
+[INFO] Resolved: byte-buddy-agent-1.10.6.jar
+[INFO] Resolved: objenesis-2.6.jar
+[INFO] Resolved: jsonassert-1.5.0.jar
+[INFO] Resolved: android-json-0.0.20131108.vaadin1.jar
+[INFO] Resolved: spring-core-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-jcl-5.2.3.RELEASE.jar
+[INFO] Resolved: spring-test-5.2.3.RELEASE.jar
+[INFO] Resolved: xmlunit-core-2.6.3.jar
+[INFO] Resolved: swagger-jersey-jaxrs-1.5.9.jar
+[INFO] Resolved: swagger-jaxrs-1.5.9.jar
+[INFO] Resolved: jackson-dataformat-yaml-2.10.2.jar
+[INFO] Resolved: jackson-dataformat-xml-2.10.2.jar
+[INFO] Resolved: jackson-module-jaxb-annotations-2.10.2.jar
+[INFO] Resolved: stax2-api-4.2.jar
+[INFO] Resolved: woodstox-core-6.0.3.jar
+[INFO] Resolved: swagger-core-1.5.9.jar
+[INFO] Resolved: commons-lang3-3.9.jar
+[INFO] Resolved: jackson-datatype-joda-2.10.2.jar
+[INFO] Resolved: joda-time-2.10.5.jar
+[INFO] Resolved: validation-api-2.0.1.Final.jar
+[INFO] Resolved: jsr311-api-1.1.1.jar
+[INFO] Resolved: reflections-0.9.10.jar
+[INFO] Resolved: javassist-3.19.0-GA.jar
+[INFO] Resolved: annotations-2.0.1.jar
+[INFO] Resolved: jackson-jaxrs-json-provider-2.10.2.jar
+[INFO] Resolved: jackson-jaxrs-base-2.10.2.jar
+[INFO] Resolved: jersey-multipart-1.13.jar
+[INFO] Resolved: mimepull-1.6.jar
+[INFO] Resolved: jersey-servlet-1.13.jar
+[INFO] Resolved: jersey-client-1.13.jar
+[INFO] Resolved: jersey-core-1.13.jar
+[INFO] Resolved: jersey-server-1.13.jar
+[INFO] Resolved: asm-3.1.jar
+[INFO] Resolved: springfox-swagger2-2.5.0.jar
+[INFO] Resolved: swagger-annotations-1.5.9.jar
+[INFO] Resolved: swagger-models-1.5.9.jar
+[INFO] Resolved: jackson-annotations-2.10.2.jar
+[INFO] Resolved: springfox-spi-2.5.0.jar
+[INFO] Resolved: springfox-core-2.5.0.jar
+[INFO] Resolved: springfox-schema-2.5.0.jar
+[INFO] Resolved: springfox-swagger-common-2.5.0.jar
+[INFO] Resolved: springfox-spring-web-2.5.0.jar
+[INFO] Resolved: guava-18.0.jar
+[INFO] Resolved: classmate-1.5.1.jar
+[INFO] Resolved: slf4j-api-1.7.30.jar
+[INFO] Resolved: spring-plugin-core-1.2.0.RELEASE.jar
+[INFO] Resolved: spring-plugin-metadata-1.2.0.RELEASE.jar
+[INFO] Resolved: mapstruct-1.0.0.Final.jar
+[INFO] Resolved: springfox-swagger-ui-2.5.0.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.996 s (Wall Clock)
+[INFO] Finished at: 2020-03-21T20:42:41Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] sh
++ echo Ejecutar pruebas unitarias
+Ejecutar pruebas unitarias
+[Pipeline] sh
++ mvn test
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.mitocode:mitocode-calculator >------------------
+[INFO] Building mitocode-calculator 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ mitocode-calculator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ mitocode-calculator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ mitocode-calculator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/java-devops-tf-ci@2/src/test/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ mitocode-calculator ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ mitocode-calculator ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.mitocode.calculator.SimpleCalculatorControllerTest
+20:42:59.705 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+20:42:59.749 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+20:42:59.917 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.mitocode.calculator.SimpleCalculatorControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
+20:42:59.995 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mitocode.calculator.SimpleCalculatorControllerTest], using SpringBootContextLoader
+20:43:00.010 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: class path resource [com/mitocode/calculator/SimpleCalculatorControllerTest-context.xml] does not exist
+20:43:00.012 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: class path resource [com/mitocode/calculator/SimpleCalculatorControllerTestContext.groovy] does not exist
+20:43:00.013 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+20:43:00.014 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: SimpleCalculatorControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+20:43:00.369 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.mitocode.calculator.SimpleCalculatorControllerTest]
+20:43:00.554 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/java-devops-tf-ci@2/target/classes/com/mitocode/calculator/SimpleCalculatorApplication.class]
+20:43:00.636 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.mitocode.calculator.SimpleCalculatorApplication for test class com.mitocode.calculator.SimpleCalculatorControllerTest
+20:43:00.642 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [com.mitocode.calculator.SimpleCalculatorControllerTest]: using defaults.
+20:43:00.643 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+20:43:00.707 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+20:43:00.709 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+20:43:00.710 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@74bada02, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@525575, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@46dffdc3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5a709816, org.springframework.test.context.support.DirtiesContextTestExecutionListener@78383390, org.springframework.test.context.event.EventPublishingTestExecutionListener@6ad3381f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@53dbe163, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@db57326, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@34a875b3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4748a0f9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4b14918a]
+20:43:00.725 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@4982cc36 testClass = SimpleCalculatorControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@691939c9 testClass = SimpleCalculatorControllerTest, locations = '{}', classes = '{class com.mitocode.calculator.SimpleCalculatorApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@4f1bfe23 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4167d97b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@68f1b17f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5c669da8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@215261c7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4ece893, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@479ceda0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+20:43:00.814 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@4982cc36 testClass = SimpleCalculatorControllerTest, testInstance = com.mitocode.calculator.SimpleCalculatorControllerTest@6986bbaf, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@691939c9 testClass = SimpleCalculatorControllerTest, locations = '{}', classes = '{class com.mitocode.calculator.SimpleCalculatorApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@4f1bfe23 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4167d97b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@68f1b17f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5c669da8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@215261c7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4ece893, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@479ceda0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]].
+20:43:01.364 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true, server.port=-1}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.2.4.RELEASE)
+
+2020-03-21 20:43:03.412  INFO 230 --- [           main] c.m.c.SimpleCalculatorControllerTest     : Starting SimpleCalculatorControllerTest on bd69316c393d with PID 230 (started by ? in /var/lib/jenkins/workspace/java-devops-tf-ci@2)
+2020-03-21 20:43:03.428  INFO 230 --- [           main] c.m.c.SimpleCalculatorControllerTest     : No active profile set, falling back to default profiles: default
+2020-03-21 20:43:10.795  WARN 230 --- [           main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2020-03-21 20:43:11.091  INFO 230 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-21 20:43:11.297  INFO 230 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2020-03-21 20:43:11.785  INFO 230 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-03-21 20:43:11.785  INFO 230 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-03-21 20:43:11.858  INFO 230 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 71 ms
+2020-03-21 20:43:12.021  INFO 230 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-21 20:43:12.132  INFO 230 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-21 20:43:12.163  INFO 230 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-21 20:43:13.113  INFO 230 --- [           main] c.m.c.SimpleCalculatorControllerTest     : Started SimpleCalculatorControllerTest in 11.674 seconds (JVM running for 17.397)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.358 s - in com.mitocode.calculator.SimpleCalculatorControllerTest
+2020-03-21 20:43:14.748  INFO 230 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.990 s
+[INFO] Finished at: 2020-03-21T20:43:15Z
+[INFO] ------------------------------------------------------------------------
+[Pipeline] }
+$ docker stop --time=1 bd69316c393d9386c8d6724c0cea682d1ce1e0ec3b520c8b9a4f39b98087145f
+$ docker rm -f bd69316c393d9386c8d6724c0cea682d1ce1e0ec3b520c8b9a4f39b98087145f
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Prepare backend version)
+[Pipeline] node
+Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker inspect -f . maven:3.6.3-jdk-11-slim
+.
+[Pipeline] withDockerContainer
+Jenkins  does not seem to be running inside a container
+$ docker run -t -d -u 114:125 -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.6.3-jdk-11-slim cat
+$ docker top 7e5c507b1907aad61cb480fd07d7b597eead5c7bbe04bfcb7c8833e1107999d9 -eo pid,comm
+[Pipeline] {
+[Pipeline] echo
+Getting backend version with maven
+[Pipeline] echo
+Before 0.0.0
+[Pipeline] sh
++ mvn help:evaluate -Dexpression=project.version -q -DforceStdout
+[Pipeline] script
+[Pipeline] {
+[Pipeline] readFile
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] echo
+After cemp2703/app-java-devops:0.0.1-SNAPSHOT-16
+[Pipeline] }
+$ docker stop --time=1 7e5c507b1907aad61cb480fd07d7b597eead5c7bbe04bfcb7c8833e1107999d9
+$ docker rm -f 7e5c507b1907aad61cb480fd07d7b597eead5c7bbe04bfcb7c8833e1107999d9
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Setup compose environmet)
+[Pipeline] echo
+Building backend image cemp2703/app-java-devops:0.0.1-SNAPSHOT-16
+[Pipeline] sh
++ docker build -t cemp2703/app-java-devops:0.0.1-SNAPSHOT-16 .
+Sending build context to Docker daemon  205.3kB
+Step 1/15 : FROM maven:3.6.3-jdk-11-slim AS builder
+ ---> 828766b5e113
+Step 2/15 : WORKDIR /app
+ ---> Using cache
+ ---> 87a9b2df99af
+Step 3/15 : COPY pom.xml .
+ ---> Using cache
+ ---> 1846f7630beb
+Step 4/15 : RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.0.2:go-offline
+ ---> Using cache
+ ---> 8caf470f98ac
+Step 5/15 : COPY src ./src
+ ---> Using cache
+ ---> 6ac344b7e4fb
+Step 6/15 : RUN ls -la ./src
+ ---> Using cache
+ ---> 6ff7c66d599f
+Step 7/15 : RUN mvn clean package -Dmaven.test.skip=true
+ ---> Using cache
+ ---> 7a8cc885f863
+Step 8/15 : RUN ls -la /app
+ ---> Using cache
+ ---> 67aa26ca0921
+Step 9/15 : FROM openjdk:11.0.6-jdk
+ ---> d29dd615eaf4
+Step 10/15 : LABEL maintainer="cemp2703@gmail.com"
+ ---> Using cache
+ ---> 9f1184eafb26
+Step 11/15 : WORKDIR /workspace
+ ---> Using cache
+ ---> a1225fc1afd3
+Step 12/15 : RUN ls -la /workspace
+ ---> Using cache
+ ---> 60f2fb6dfe27
+Step 13/15 : COPY --from=builder /app/target/mitocode-calculator*.jar app.jar
+ ---> Using cache
+ ---> 866e77c1bc77
+Step 14/15 : RUN ls -la /workspace
+ ---> Using cache
+ ---> caa45aa92e85
+Step 15/15 : ENTRYPOINT exec java -jar /workspace/app.jar
+ ---> Using cache
+ ---> 0b80642213e9
+Successfully built 0b80642213e9
+Successfully tagged cemp2703/app-java-devops:0.0.1-SNAPSHOT-16
+[Pipeline] echo
+Generate docker-compose file
+[Pipeline] sh
++ sed -i s@{{BACKEND_DOCKER_IMAGE}}@cemp2703/app-java-devops:0.0.1-SNAPSHOT-16@g docker-compose.dist
+[Pipeline] sh
++ cat docker-compose.dist
+version: '3.1'
+
+services:
+  api:
+    image: cemp2703/app-java-devops:0.0.1-SNAPSHOT-3
+    restart: always
+    networks:
+      - apinet
+    ports:
+      - 80:8080
+
+networks:
+  apinet:
+    driver: bridge
+[Pipeline] sh
++ docker-compose -f docker-compose.dist up -d
+Creating network "java-devops-tf-ci_apinet" with driver "bridge"
+Creating java-devops-tf-ci_api_1 ... 
+[1A[2KCreating java-devops-tf-ci_api_1 ... [32mdone[0m[1B
+[Pipeline] sh
++ sleep 5
+[Pipeline] sh
++ docker-compose -f docker-compose.dist ps
+         Name                        Command               State          Ports        
+---------------------------------------------------------------------------------------
+java-devops-tf-ci_api_1   /bin/sh -c exec java -jar  ...   Up      0.0.0.0:80->8080/tcp
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (External testing Newman)
+[Pipeline] node
+Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker inspect -f . postman/newman
+.
+[Pipeline] withDockerContainer
+Jenkins  does not seem to be running inside a container
+$ docker run -t -d -u 114:125 --entrypoint= --network host -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** postman/newman cat
+$ docker top f33cf2b01321a4f416e8a742d305aebc282eeb088a5d63bdbea1dd731daf9330 -eo pid,comm
+[Pipeline] {
+[Pipeline] echo
+Testing Newman
+[Pipeline] dir
+Running in /var/lib/jenkins/workspace/java-devops-tf-ci@2/e2e/newman
+[Pipeline] {
+[Pipeline] sh
++ newman run api-calculadora.postman_collection.json -e CLOUD.postman_environment.json --env-var 'url=http://192.168.8.174'
+newman
+
+api-calculadora
+
+→ Add
+  GET http://192.168.8.174/api/add/9/3 [200 OK, 263B, 632ms]
+
+→ Div
+  GET http://192.168.8.174/api/div/9/3 [200 OK, 261B, 34ms]
+
+→ Mul
+  GET http://192.168.8.174/api/mul/9/3 [200 OK, 263B, 23ms]
+
+→ Sub
+  GET http://192.168.8.174/api/sub/9/3 [200 OK, 261B, 24ms]
+
+┌─────────────────────────┬────────────────────┬────────────────────┐
+│                         │           executed │             failed │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              iterations │                  1 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│                requests │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│            test-scripts │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│      prerequest-scripts │                  4 │                  0 │
+├─────────────────────────┼────────────────────┼────────────────────┤
+│              assertions │                  0 │                  0 │
+├─────────────────────────┴────────────────────┴────────────────────┤
+│ total run duration: 1205ms                                        │
+├───────────────────────────────────────────────────────────────────┤
+│ total data received: 38B (approx)                                 │
+├───────────────────────────────────────────────────────────────────┤
+│ average response time: 178ms [min: 23ms, max: 632ms, s.d.: 262ms] │
+└───────────────────────────────────────────────────────────────────┘
+[Pipeline] }
+[Pipeline] // dir
+[Pipeline] }
+$ docker stop --time=1 f33cf2b01321a4f416e8a742d305aebc282eeb088a5d63bdbea1dd731daf9330
+$ docker rm -f f33cf2b01321a4f416e8a742d305aebc282eeb088a5d63bdbea1dd731daf9330
+[Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] echo
+Down ephemeral environment....
+[Pipeline] sh
++ docker-compose -f docker-compose.dist down
+Stopping java-devops-tf-ci_api_1 ... 
+[1A[2KStopping java-devops-tf-ci_api_1 ... [32mdone[0m[1BRemoving java-devops-tf-ci_api_1 ... 
+[1A[2KRemoving java-devops-tf-ci_api_1 ... [32mdone[0m[1BRemoving network java-devops-tf-ci_apinet
+[Pipeline] echo
+changed
+[Pipeline] echo
+success
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
