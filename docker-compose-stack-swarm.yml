@@ -1,0 +1,13 @@
+version: "3"
+services:
+  api:
+    image: cemp2703/api-java-devops-tf:2
+    deploy:
+      replicas: 1
+    ports:
+      - 80:8080
+    networks:
+      - api-tier
+
+networks:
+  api-tier:
