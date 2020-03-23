@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        SERVICE_BACKEND = "${params.STACK_NAME}"
+        SERVICE_BACKEND = "${params.STACK_NAME}_api"
         STACK_VERSION = "${params.STACK_VERSION}"
         APPLICATION_SERVER = "${params.APPLICATION_SERVER}"
         APPLICATION_PEM = "/var/lib/jenkins/pems/kp_cesar_ohio.pem"
