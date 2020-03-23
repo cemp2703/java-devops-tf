@@ -34,7 +34,8 @@ pipeline {
                 echo "After ${backendVersion}"
                 sh 'mvn package'
                 sh "mv target/*.jar target/${backendVersion}.jar"
-                sh "for file in target/*.jar; do mv $file target/'$(basename -s .jar $file)'${backendVersion}.jar; done;"
+                
+                sh "for file in target/*.jar; do mv $file target/'\$\(basename -s .jar \$file\)'${backendVersion}.jar; done;"
             }
         }
     }
