@@ -4,6 +4,10 @@ pipeline {
 
     agent any
 
+    environment{
+        JAR_NAME = "${params.JAR_NAME}"
+    }
+
     stages {
         stage('Internal testing') {
             agent {
@@ -29,12 +33,11 @@ pipeline {
                 echo "Before ${backendVersion}"
                 sh 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout > backend.txt'
                 script {
-                    backendVersion = ":" + readFile('backend.txt').trim() + "-" + env.BUILD_NUMBER
+                    backendVersion = "${JAR_NAME}:" + readFile('backend.txt').trim() + "-" + env.BUILD_NUMBER
                 }
                 echo "After ${backendVersion}"
                 sh 'mvn package'
                 sh "mv target/*.jar target/${backendVersion}.jar"
-                sh "for file in target/*.jar; do mv $file target/'$(basename -s .jar $file)'${backendVersion}.jar; done;"
             }
         }
     }
@@ -42,7 +45,7 @@ pipeline {
     post {
         always {
             echo "Down ephemeral environment...."
-            archiveArtifacts artifacts: "target/${backendVersion}.jar", onlyIfSuccessful: true
+            archiveArtifacts artifacts: "target/*.jar", onlyIfSuccessful: true
         }
 
         success {
