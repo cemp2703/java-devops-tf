@@ -4,10 +4,6 @@ pipeline {
 
     agent any
 
-    environment {
-        CONTAINER_BACKEND_PATH = "${params.CONTAINER_BACKEND_PATH}"
-    }
-
     stages {
         stage('Internal testing') {
             agent {
@@ -33,11 +29,12 @@ pipeline {
                 echo "Before ${backendVersion}"
                 sh 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout > backend.txt'
                 script {
-                    backendVersion = "${CONTAINER_BACKEND_PATH}:" + readFile('backend.txt').trim() + "-" + env.BUILD_NUMBER
+                    backendVersion = ":" + readFile('backend.txt').trim() + "-" + env.BUILD_NUMBER
                 }
                 echo "After ${backendVersion}"
                 sh 'mvn package'
-                sh "mv target/*${backendVersion}.jar"
+                sh "mv target/*.jar target/${backendVersion}.jar"
+                sh "for file in target/*.jar; do mv $file target/$(basename -s .jar $file)${backendVersion}.jar; done;"
             }
         }
     }
