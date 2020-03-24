@@ -1,6 +1,5 @@
-docker run -p 8080:8080 -d jenkins/jenkins:latest
-
-
+Proyecto realizado usando .yml de cloud formation de aws para montar jenkins
+Instalación local de jenkins para pruebas.
 
 docker build -t cemp2703/app-java-devops:0.1 .
 docker-compose up -d      
