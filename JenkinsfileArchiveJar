@@ -37,6 +37,7 @@ pipeline {
                 echo "After ${backendVersion}"
                 sh 'mvn package'
                 sh "mv target/${artifactId}.jar target/${backendVersion}.jar"
+                archiveArtifacts artifacts: "target/${backendVersion}.jar", onlyIfSuccessful: true
             }
         }
     }
@@ -44,7 +45,6 @@ pipeline {
     post {
         always {
             echo "Down ephemeral environment...."
-            archiveArtifacts artifacts: "target/${backendVersion}.jar", onlyIfSuccessful: true
         }
 
         success {
