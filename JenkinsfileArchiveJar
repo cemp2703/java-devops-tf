@@ -36,7 +36,7 @@ pipeline {
                 }
                 echo "After ${backendVersion}"
                 sh 'mvn package'
-                sh "mv target/${artifactId}.jar target/${backendVersion}"
+                sh "mv target/${artifactId}.jar target/${backendVersion}.jar"
             }
         }
     }
