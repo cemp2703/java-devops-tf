@@ -3,13 +3,12 @@ artifactId = ''
 
 pipeline {
 
-    agent any
+    agent {
+        docker { image 'maven:3.6.3-jdk-11-slim' }
+    }
 
     stages {
         stage('Internal testing') {
-            agent {
-                docker { image 'maven:3.6.3-jdk-11-slim' }
-            }
             steps {
                 sh 'mvn --version'
                 sh 'echo "Iniciando pruebas"'
@@ -22,9 +21,6 @@ pipeline {
         }
 
         stage('Prepare backend version') {
-            agent {
-                docker { image 'maven:3.6.3-jdk-11-slim' }
-            }
             steps {
                 echo "Getting backend version with maven"
                 echo "Before ${backendVersion}"
@@ -36,8 +32,7 @@ pipeline {
                 }
                 echo "After ${backendVersion}"
                 sh 'mvn package'
-                sh "mv target/${artifactId}.jar target/${backendVersion}.jar"
-                archiveArtifacts artifacts: "target/${backendVersion}.jar", onlyIfSuccessful: true
+                sh "mv target/${artifactId}.jar target/${backendVersion}.jar" 
             }
         }
     }
@@ -45,6 +40,7 @@ pipeline {
     post {
         always {
             echo "Down ephemeral environment...."
+            archiveArtifacts artifacts: "target/${backendVersion}.jar", onlyIfSuccessful: true
         }
 
         success {
