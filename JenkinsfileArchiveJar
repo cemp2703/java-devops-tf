@@ -1,12 +1,9 @@
 backendVersion = '0.0.0'
+artifactId = ''
 
 pipeline {
 
     agent any
-
-    environment{
-        JAR_NAME = "${params.JAR_NAME}"
-    }
 
     stages {
         stage('Internal testing') {
@@ -31,12 +28,15 @@ pipeline {
             steps {
                 echo "Getting backend version with maven"
                 echo "Before ${backendVersion}"
-                sh 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout > backend.txt'
+                sh 'mvn help:evaluate -Dexpression=project.version -q -DforceStdout > version.txt'
+                sh 'mvn help:evaluate -Dexpression=project.artifactId -q -DforceStdout > artifactId.txt'
                 script {
-                    backendVersion = "${JAR_NAME}:" + readFile('backend.txt').trim() + "-" + env.BUILD_NUMBER
+                    backendVersion = readFile('artifactId.txt') + readFile('version.txt').trim() + "-" + env.BUILD_NUMBER
+                    artifactId = readFile('artifactId.txt')
                 }
                 echo "After ${backendVersion}"
                 sh 'mvn package'
+                sh "mv target/${artifactId}.jar target/${backendVersion}"
             }
         }
     }
@@ -44,7 +44,7 @@ pipeline {
     post {
         always {
             echo "Down ephemeral environment...."
-            archiveArtifacts artifacts: "**/target/*.jar", onlyIfSuccessful: true
+            archiveArtifacts artifacts: "target/${backendVersion}.jar", onlyIfSuccessful: true
         }
 
         success {
