@@ -1,24 +1,64 @@
-Lanzada por el usuario admin
+Started by user admin
+Obtained Jenkinsfile from git https://github.com/cemp2703/java-devops-tf.git
 Running in Durability level: MAX_SURVIVABILITY
 [Pipeline] Start of Pipeline
 [Pipeline] node
-Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci
+Running on Jenkins in /var/lib/jenkins/workspace/java-devops-tf-ci
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Checkout SCM)
+[Pipeline] checkout
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/cemp2703/java-devops-tf.git # timeout=10
+Fetching upstream changes from https://github.com/cemp2703/java-devops-tf.git
+ > git --version # timeout=10
+ > git fetch --tags --force --progress -- https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 # timeout=10
+Commit message: "Actualizando README-MD"
+ > git rev-list --no-walk 23932f4a7cfd97d3f6253ba3935b835c327a2221 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
 [Pipeline] {
 [Pipeline] withEnv
 [Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Internal testing)
 [Pipeline] node
-Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+Running on Jenkins in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+[Pipeline] {
+[Pipeline] checkout
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/cemp2703/java-devops-tf.git # timeout=10
+Fetching upstream changes from https://github.com/cemp2703/java-devops-tf.git
+ > git --version # timeout=10
+ > git fetch --tags --force --progress -- https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 # timeout=10
+Commit message: "Actualizando README-MD"
+[Pipeline] withEnv
 [Pipeline] {
 [Pipeline] isUnix
 [Pipeline] sh
 + docker inspect -f . maven:3.6.3-jdk-11-slim
 .
 [Pipeline] withDockerContainer
-Jenkins  does not seem to be running inside a container
-$ docker run -t -d -u 114:125 -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.6.3-jdk-11-slim cat
-$ docker top bd69316c393d9386c8d6724c0cea682d1ce1e0ec3b520c8b9a4f39b98087145f -eo pid,comm
+Jenkins does not seem to be running inside a container
+$ docker run -t -d -u 996:992 -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.6.3-jdk-11-slim cat
+$ docker top 50776432d978858b466edfc2a71f44068b31c27ba86200c685dc6d7915cdfbab -eo pid,comm
+ERROR: The container started but didn't run the expected command. Please double check your ENTRYPOINT does execute the command passed as docker run argument, as required by official docker images (see https://github.com/docker-library/official-images#consistency for entrypoint consistency requirements).
+Alternatively you can force image entrypoint to be disabled by adding option `--entrypoint=''`.
 [Pipeline] {
 [Pipeline] sh
 + mvn --version
@@ -26,7 +66,7 @@ Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
 Maven home: /usr/share/maven
 Java version: 11.0.6, vendor: Oracle Corporation, runtime: /usr/local/openjdk-11
 Default locale: en, platform encoding: UTF-8
-OS name: "linux", version: "4.8.0-36-generic", arch: "amd64", family: "unix"
+OS name: "linux", version: "4.14.171-136.231.amzn2.x86_64", arch: "amd64", family: "unix"
 [Pipeline] sh
 + echo Iniciando pruebas
 Iniciando pruebas
@@ -41,8 +81,6 @@ Obteniendo dependencias
 + mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.0.2:go-offline
 [INFO] Error stacktraces are turned on.
 [INFO] Scanning for projects...
-[INFO] 
-[INFO] Using the MultiThreadedBuilder implementation with a thread count of 2
 [INFO] 
 [INFO] ------------------< com.mitocode:mitocode-calculator >------------------
 [INFO] Building mitocode-calculator 0.0.1-SNAPSHOT
@@ -552,8 +590,8 @@ Obteniendo dependencias
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.996 s (Wall Clock)
-[INFO] Finished at: 2020-03-21T20:42:41Z
+[INFO] Total time:  5.560 s
+[INFO] Finished at: 2020-03-24T15:51:44Z
 [INFO] ------------------------------------------------------------------------
 [Pipeline] sh
 + echo Ejecutar pruebas unitarias
@@ -572,14 +610,16 @@ Ejecutar pruebas unitarias
 [INFO] Copying 2 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ mitocode-calculator ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /var/lib/jenkins/workspace/java-devops-tf-ci@2/target/classes
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ mitocode-calculator ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/java-devops-tf-ci@2/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ mitocode-calculator ---
-[INFO] Nothing to compile - all classes are up to date
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 1 source file to /var/lib/jenkins/workspace/java-devops-tf-ci@2/target/test-classes
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ mitocode-calculator ---
 [INFO] 
@@ -587,25 +627,25 @@ Ejecutar pruebas unitarias
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running com.mitocode.calculator.SimpleCalculatorControllerTest
-20:42:59.705 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
-20:42:59.749 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
-20:42:59.917 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.mitocode.calculator.SimpleCalculatorControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
-20:42:59.995 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mitocode.calculator.SimpleCalculatorControllerTest], using SpringBootContextLoader
-20:43:00.010 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: class path resource [com/mitocode/calculator/SimpleCalculatorControllerTest-context.xml] does not exist
-20:43:00.012 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: class path resource [com/mitocode/calculator/SimpleCalculatorControllerTestContext.groovy] does not exist
-20:43:00.013 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
-20:43:00.014 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: SimpleCalculatorControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-20:43:00.369 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.mitocode.calculator.SimpleCalculatorControllerTest]
-20:43:00.554 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/java-devops-tf-ci@2/target/classes/com/mitocode/calculator/SimpleCalculatorApplication.class]
-20:43:00.636 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.mitocode.calculator.SimpleCalculatorApplication for test class com.mitocode.calculator.SimpleCalculatorControllerTest
-20:43:00.642 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [com.mitocode.calculator.SimpleCalculatorControllerTest]: using defaults.
-20:43:00.643 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
-20:43:00.707 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
-20:43:00.709 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
-20:43:00.710 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@74bada02, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@525575, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@46dffdc3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5a709816, org.springframework.test.context.support.DirtiesContextTestExecutionListener@78383390, org.springframework.test.context.event.EventPublishingTestExecutionListener@6ad3381f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@53dbe163, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@db57326, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@34a875b3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4748a0f9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4b14918a]
-20:43:00.725 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@4982cc36 testClass = SimpleCalculatorControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@691939c9 testClass = SimpleCalculatorControllerTest, locations = '{}', classes = '{class com.mitocode.calculator.SimpleCalculatorApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@4f1bfe23 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4167d97b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@68f1b17f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5c669da8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@215261c7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4ece893, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@479ceda0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
-20:43:00.814 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@4982cc36 testClass = SimpleCalculatorControllerTest, testInstance = com.mitocode.calculator.SimpleCalculatorControllerTest@6986bbaf, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@691939c9 testClass = SimpleCalculatorControllerTest, locations = '{}', classes = '{class com.mitocode.calculator.SimpleCalculatorApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@4f1bfe23 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4167d97b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@68f1b17f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5c669da8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@215261c7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4ece893, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@479ceda0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]].
-20:43:01.364 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true, server.port=-1}
+15:51:58.907 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+15:51:58.929 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+15:51:59.029 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.mitocode.calculator.SimpleCalculatorControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
+15:51:59.089 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.mitocode.calculator.SimpleCalculatorControllerTest], using SpringBootContextLoader
+15:51:59.101 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: class path resource [com/mitocode/calculator/SimpleCalculatorControllerTest-context.xml] does not exist
+15:51:59.103 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: class path resource [com/mitocode/calculator/SimpleCalculatorControllerTestContext.groovy] does not exist
+15:51:59.104 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+15:51:59.106 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.mitocode.calculator.SimpleCalculatorControllerTest]: SimpleCalculatorControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+15:51:59.248 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.mitocode.calculator.SimpleCalculatorControllerTest]
+15:51:59.385 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [/var/lib/jenkins/workspace/java-devops-tf-ci@2/target/classes/com/mitocode/calculator/SimpleCalculatorApplication.class]
+15:51:59.427 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.mitocode.calculator.SimpleCalculatorApplication for test class com.mitocode.calculator.SimpleCalculatorControllerTest
+15:51:59.432 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [com.mitocode.calculator.SimpleCalculatorControllerTest]: using defaults.
+15:51:59.437 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+15:51:59.469 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.transaction.TransactionalTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttributeSource]
+15:51:59.480 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [org/springframework/transaction/interceptor/TransactionAttribute]
+15:51:59.482 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@74bada02, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@525575, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@46dffdc3, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@5a709816, org.springframework.test.context.support.DirtiesContextTestExecutionListener@78383390, org.springframework.test.context.event.EventPublishingTestExecutionListener@6ad3381f, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@53dbe163, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@db57326, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@34a875b3, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@4748a0f9, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@4b14918a]
+15:51:59.497 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@4982cc36 testClass = SimpleCalculatorControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@691939c9 testClass = SimpleCalculatorControllerTest, locations = '{}', classes = '{class com.mitocode.calculator.SimpleCalculatorApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@4f1bfe23 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4167d97b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@68f1b17f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5c669da8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@215261c7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4ece893, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@479ceda0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+15:51:59.547 [main] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@4982cc36 testClass = SimpleCalculatorControllerTest, testInstance = com.mitocode.calculator.SimpleCalculatorControllerTest@6986bbaf, testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@691939c9 testClass = SimpleCalculatorControllerTest, locations = '{}', classes = '{class com.mitocode.calculator.SimpleCalculatorApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@4f1bfe23 key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4167d97b, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@68f1b17f, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@5c669da8, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@215261c7, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@4ece893, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@479ceda0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]]].
+15:51:59.919 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true, server.port=-1}
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -615,20 +655,20 @@ Ejecutar pruebas unitarias
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::        (v2.2.4.RELEASE)
 
-2020-03-21 20:43:03.412  INFO 230 --- [           main] c.m.c.SimpleCalculatorControllerTest     : Starting SimpleCalculatorControllerTest on bd69316c393d with PID 230 (started by ? in /var/lib/jenkins/workspace/java-devops-tf-ci@2)
-2020-03-21 20:43:03.428  INFO 230 --- [           main] c.m.c.SimpleCalculatorControllerTest     : No active profile set, falling back to default profiles: default
-2020-03-21 20:43:10.795  WARN 230 --- [           main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
-2020-03-21 20:43:11.091  INFO 230 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
-2020-03-21 20:43:11.297  INFO 230 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
-2020-03-21 20:43:11.785  INFO 230 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2020-03-21 20:43:11.785  INFO 230 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2020-03-21 20:43:11.858  INFO 230 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 71 ms
-2020-03-21 20:43:12.021  INFO 230 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
-2020-03-21 20:43:12.132  INFO 230 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
-2020-03-21 20:43:12.163  INFO 230 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
-2020-03-21 20:43:13.113  INFO 230 --- [           main] c.m.c.SimpleCalculatorControllerTest     : Started SimpleCalculatorControllerTest in 11.674 seconds (JVM running for 17.397)
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 15.358 s - in com.mitocode.calculator.SimpleCalculatorControllerTest
-2020-03-21 20:43:14.748  INFO 230 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2020-03-24 15:52:00.574  INFO 202 --- [           main] c.m.c.SimpleCalculatorControllerTest     : Starting SimpleCalculatorControllerTest on 50776432d978 with PID 202 (started by ? in /var/lib/jenkins/workspace/java-devops-tf-ci@2)
+2020-03-24 15:52:00.586  INFO 202 --- [           main] c.m.c.SimpleCalculatorControllerTest     : No active profile set, falling back to default profiles: default
+2020-03-24 15:52:05.390  WARN 202 --- [           main] uration$JodaDateTimeJacksonConfiguration : Auto-configuration of Jackson's Joda-Time integration is deprecated in favor of using java.time (JSR-310).
+2020-03-24 15:52:05.572  INFO 202 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-03-24 15:52:05.702  INFO 202 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2020-03-24 15:52:05.965  INFO 202 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2020-03-24 15:52:05.966  INFO 202 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2020-03-24 15:52:05.991  INFO 202 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 25 ms
+2020-03-24 15:52:06.053  INFO 202 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2020-03-24 15:52:06.116  INFO 202 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2020-03-24 15:52:06.134  INFO 202 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2020-03-24 15:52:06.618  INFO 202 --- [           main] c.m.c.SimpleCalculatorControllerTest     : Started SimpleCalculatorControllerTest in 6.681 seconds (JVM running for 9.796)
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.943 s - in com.mitocode.calculator.SimpleCalculatorControllerTest
+2020-03-24 15:52:07.615  INFO 202 --- [extShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -637,13 +677,15 @@ Ejecutar pruebas unitarias
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  25.990 s
-[INFO] Finished at: 2020-03-21T20:43:15Z
+[INFO] Total time:  19.221 s
+[INFO] Finished at: 2020-03-24T15:52:07Z
 [INFO] ------------------------------------------------------------------------
 [Pipeline] }
-$ docker stop --time=1 bd69316c393d9386c8d6724c0cea682d1ce1e0ec3b520c8b9a4f39b98087145f
-$ docker rm -f bd69316c393d9386c8d6724c0cea682d1ce1e0ec3b520c8b9a4f39b98087145f
+$ docker stop --time=1 50776432d978858b466edfc2a71f44068b31c27ba86200c685dc6d7915cdfbab
+$ docker rm -f 50776432d978858b466edfc2a71f44068b31c27ba86200c685dc6d7915cdfbab
 [Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] }
@@ -651,16 +693,32 @@ $ docker rm -f bd69316c393d9386c8d6724c0cea682d1ce1e0ec3b520c8b9a4f39b98087145f
 [Pipeline] stage
 [Pipeline] { (Prepare backend version)
 [Pipeline] node
-Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+Running on Jenkins in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+[Pipeline] {
+[Pipeline] checkout
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/cemp2703/java-devops-tf.git # timeout=10
+Fetching upstream changes from https://github.com/cemp2703/java-devops-tf.git
+ > git --version # timeout=10
+ > git fetch --tags --force --progress -- https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 # timeout=10
+Commit message: "Actualizando README-MD"
+[Pipeline] withEnv
 [Pipeline] {
 [Pipeline] isUnix
 [Pipeline] sh
 + docker inspect -f . maven:3.6.3-jdk-11-slim
 .
 [Pipeline] withDockerContainer
-Jenkins  does not seem to be running inside a container
-$ docker run -t -d -u 114:125 -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.6.3-jdk-11-slim cat
-$ docker top 7e5c507b1907aad61cb480fd07d7b597eead5c7bbe04bfcb7c8833e1107999d9 -eo pid,comm
+Jenkins does not seem to be running inside a container
+$ docker run -t -d -u 996:992 -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** maven:3.6.3-jdk-11-slim cat
+$ docker top d6c2ac739e6acc14a7eb1b659abbfb9e1989fe1de193a74fda0303266fe6c63d -eo pid,comm
 [Pipeline] {
 [Pipeline] echo
 Getting backend version with maven
@@ -674,11 +732,13 @@ Before 0.0.0
 [Pipeline] }
 [Pipeline] // script
 [Pipeline] echo
-After cemp2703/app-java-devops:0.0.1-SNAPSHOT-16
+After cemp2703/app-java-devops:0.0.1-SNAPSHOT-12
 [Pipeline] }
-$ docker stop --time=1 7e5c507b1907aad61cb480fd07d7b597eead5c7bbe04bfcb7c8833e1107999d9
-$ docker rm -f 7e5c507b1907aad61cb480fd07d7b597eead5c7bbe04bfcb7c8833e1107999d9
+$ docker stop --time=1 d6c2ac739e6acc14a7eb1b659abbfb9e1989fe1de193a74fda0303266fe6c63d
+$ docker rm -f d6c2ac739e6acc14a7eb1b659abbfb9e1989fe1de193a74fda0303266fe6c63d
 [Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] }
@@ -686,66 +746,121 @@ $ docker rm -f 7e5c507b1907aad61cb480fd07d7b597eead5c7bbe04bfcb7c8833e1107999d9
 [Pipeline] stage
 [Pipeline] { (Setup compose environmet)
 [Pipeline] echo
-Building backend image cemp2703/app-java-devops:0.0.1-SNAPSHOT-16
+Building backend image cemp2703/app-java-devops:0.0.1-SNAPSHOT-12
 [Pipeline] sh
-+ docker build -t cemp2703/app-java-devops:0.0.1-SNAPSHOT-16 .
-Sending build context to Docker daemon  205.3kB
++ docker build -t cemp2703/app-java-devops:0.0.1-SNAPSHOT-12 .
+Sending build context to Docker daemon  9.548MB
 Step 1/15 : FROM maven:3.6.3-jdk-11-slim AS builder
  ---> 828766b5e113
 Step 2/15 : WORKDIR /app
  ---> Using cache
- ---> 87a9b2df99af
+ ---> b984bcf77170
 Step 3/15 : COPY pom.xml .
  ---> Using cache
- ---> 1846f7630beb
+ ---> 703e780c3966
 Step 4/15 : RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.0.2:go-offline
  ---> Using cache
- ---> 8caf470f98ac
+ ---> 7cc0f54d73be
 Step 5/15 : COPY src ./src
- ---> Using cache
- ---> 6ac344b7e4fb
+ ---> 90431e3a9fe6
 Step 6/15 : RUN ls -la ./src
- ---> Using cache
- ---> 6ff7c66d599f
+ ---> Running in b048641331cf
+total 0
+drwxr-xr-x 4 root root 30 Mar 24 15:52 .
+drwxr-xr-x 1 root root 17 Mar 24 15:52 ..
+drwxr-xr-x 4 root root 35 Mar 19 04:03 main
+drwxr-xr-x 3 root root 18 Mar 19 04:03 test
+Removing intermediate container b048641331cf
+ ---> 7e757cd9f9a7
 Step 7/15 : RUN mvn clean package -Dmaven.test.skip=true
- ---> Using cache
- ---> 7a8cc885f863
+ ---> Running in 36ac4fdf9e05
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.mitocode:mitocode-calculator >------------------
+[INFO] Building mitocode-calculator 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ mitocode-calculator ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ mitocode-calculator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 0 resource
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ mitocode-calculator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /app/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ mitocode-calculator ---
+[INFO] Not copying test resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ mitocode-calculator ---
+[INFO] Not compiling test sources
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ mitocode-calculator ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:3.1.2:jar (default-jar) @ mitocode-calculator ---
+[INFO] Building jar: /app/target/mitocode-calculator.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.2.4.RELEASE:repackage (repackage) @ mitocode-calculator ---
+[INFO] Replacing main artifact with repackaged archive
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.322 s
+[INFO] Finished at: 2020-03-24T15:52:35Z
+[INFO] ------------------------------------------------------------------------
+Removing intermediate container 36ac4fdf9e05
+ ---> 2e7adb53464d
 Step 8/15 : RUN ls -la /app
- ---> Using cache
- ---> 67aa26ca0921
+ ---> Running in 3a6818e01f3e
+total 4
+drwxr-xr-x 1 root root   20 Mar 24 15:52 .
+drwxr-xr-x 1 root root    6 Mar 24 15:52 ..
+-rw-r--r-- 1 root root 2217 Mar 19 04:03 pom.xml
+drwxr-xr-x 4 root root   30 Mar 24 15:52 src
+drwxr-xr-x 6 root root  159 Mar 24 15:52 target
+Removing intermediate container 3a6818e01f3e
+ ---> fa8c6b4a34de
 Step 9/15 : FROM openjdk:11.0.6-jdk
  ---> d29dd615eaf4
 Step 10/15 : LABEL maintainer="cemp2703@gmail.com"
  ---> Using cache
- ---> 9f1184eafb26
+ ---> af686c016d4a
 Step 11/15 : WORKDIR /workspace
  ---> Using cache
- ---> a1225fc1afd3
+ ---> 4b17d2a07579
 Step 12/15 : RUN ls -la /workspace
  ---> Using cache
- ---> 60f2fb6dfe27
+ ---> 2272d00ef813
 Step 13/15 : COPY --from=builder /app/target/mitocode-calculator*.jar app.jar
- ---> Using cache
- ---> 866e77c1bc77
+ ---> 09349dc63dd0
 Step 14/15 : RUN ls -la /workspace
- ---> Using cache
- ---> caa45aa92e85
+ ---> Running in 41640ace8882
+total 26336
+drwxr-xr-x 1 root root       21 Mar 24 15:52 .
+drwxr-xr-x 1 root root        6 Mar 24 15:52 ..
+-rw-r--r-- 1 root root 26965325 Mar 24 15:52 app.jar
+Removing intermediate container 41640ace8882
+ ---> 9b8612069f5f
 Step 15/15 : ENTRYPOINT exec java -jar /workspace/app.jar
- ---> Using cache
- ---> 0b80642213e9
-Successfully built 0b80642213e9
-Successfully tagged cemp2703/app-java-devops:0.0.1-SNAPSHOT-16
+ ---> Running in 3fac08cb0cab
+Removing intermediate container 3fac08cb0cab
+ ---> b61a300c8f8c
+Successfully built b61a300c8f8c
+Successfully tagged cemp2703/app-java-devops:0.0.1-SNAPSHOT-12
 [Pipeline] echo
 Generate docker-compose file
 [Pipeline] sh
-+ sed -i s@{{BACKEND_DOCKER_IMAGE}}@cemp2703/app-java-devops:0.0.1-SNAPSHOT-16@g docker-compose.dist
++ sed -i 's@{{BACKEND_DOCKER_IMAGE}}@cemp2703/app-java-devops:0.0.1-SNAPSHOT-12@g' docker-compose.dist
 [Pipeline] sh
 + cat docker-compose.dist
 version: '3.1'
 
 services:
   api:
-    image: cemp2703/app-java-devops:0.0.1-SNAPSHOT-3
+    image: cemp2703/app-java-devops:0.0.1-SNAPSHOT-12
     restart: always
     networks:
       - apinet
@@ -772,16 +887,32 @@ java-devops-tf-ci_api_1   /bin/sh -c exec java -jar  ...   Up      0.0.0.0:80->8
 [Pipeline] stage
 [Pipeline] { (External testing Newman)
 [Pipeline] node
-Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+Running on Jenkins in /var/lib/jenkins/workspace/java-devops-tf-ci@2
+[Pipeline] {
+[Pipeline] checkout
+No credentials specified
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/cemp2703/java-devops-tf.git # timeout=10
+Fetching upstream changes from https://github.com/cemp2703/java-devops-tf.git
+ > git --version # timeout=10
+ > git fetch --tags --force --progress -- https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 # timeout=10
+Commit message: "Actualizando README-MD"
+[Pipeline] withEnv
 [Pipeline] {
 [Pipeline] isUnix
 [Pipeline] sh
-+ docker inspect -f . postman/newman
++ docker inspect -f . postman/newman:alpine
 .
 [Pipeline] withDockerContainer
-Jenkins  does not seem to be running inside a container
-$ docker run -t -d -u 114:125 --entrypoint= --network host -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** postman/newman cat
-$ docker top f33cf2b01321a4f416e8a742d305aebc282eeb088a5d63bdbea1dd731daf9330 -eo pid,comm
+Jenkins does not seem to be running inside a container
+$ docker run -t -d -u 996:992 --entrypoint= --network host -w /var/lib/jenkins/workspace/java-devops-tf-ci@2 -v /var/lib/jenkins/workspace/java-devops-tf-ci@2:/var/lib/jenkins/workspace/java-devops-tf-ci@2:rw,z -v /var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:/var/lib/jenkins/workspace/java-devops-tf-ci@2@tmp:rw,z -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** -e ******** postman/newman:alpine cat
+$ docker top 7abdf347d7dc0809a07b5e3ef312323f2f0e2cfa544ba58735d3834acd703817 -eo pid,comm
 [Pipeline] {
 [Pipeline] echo
 Testing Newman
@@ -789,48 +920,50 @@ Testing Newman
 Running in /var/lib/jenkins/workspace/java-devops-tf-ci@2/e2e/newman
 [Pipeline] {
 [Pipeline] sh
-+ newman run api-calculadora.postman_collection.json -e CLOUD.postman_environment.json --env-var 'url=http://192.168.8.174'
++ newman run api-calculadora.postman_collection.json -e CLOUD.postman_environment.json --env-var 'url=http://172.31.27.73'
 newman
 
 api-calculadora
 
 → Add
-  GET http://192.168.8.174/api/add/9/3 [200 OK, 263B, 632ms]
+  GET http://172.31.27.73/api/add/9/3 [200 OK, 263B, 372ms]
 
 → Div
-  GET http://192.168.8.174/api/div/9/3 [200 OK, 261B, 34ms]
+  GET http://172.31.27.73/api/div/9/3 [200 OK, 261B, 19ms]
 
 → Mul
-  GET http://192.168.8.174/api/mul/9/3 [200 OK, 263B, 23ms]
+  GET http://172.31.27.73/api/mul/9/3 [200 OK, 263B, 8ms]
 
 → Sub
-  GET http://192.168.8.174/api/sub/9/3 [200 OK, 261B, 24ms]
+  GET http://172.31.27.73/api/sub/9/3 [200 OK, 261B, 9ms]
 
-┌─────────────────────────┬────────────────────┬────────────────────┐
-│                         │           executed │             failed │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│              iterations │                  1 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│                requests │                  4 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│            test-scripts │                  4 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│      prerequest-scripts │                  4 │                  0 │
-├─────────────────────────┼────────────────────┼────────────────────┤
-│              assertions │                  0 │                  0 │
-├─────────────────────────┴────────────────────┴────────────────────┤
-│ total run duration: 1205ms                                        │
-├───────────────────────────────────────────────────────────────────┤
-│ total data received: 38B (approx)                                 │
-├───────────────────────────────────────────────────────────────────┤
-│ average response time: 178ms [min: 23ms, max: 632ms, s.d.: 262ms] │
-└───────────────────────────────────────────────────────────────────┘
+┌─────────────────────────┬────────────────────┬───────────────────┐
+│                         │           executed │            failed │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              iterations │                  1 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│                requests │                  4 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│            test-scripts │                  4 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│      prerequest-scripts │                  4 │                 0 │
+├─────────────────────────┼────────────────────┼───────────────────┤
+│              assertions │                  0 │                 0 │
+├─────────────────────────┴────────────────────┴───────────────────┤
+│ total run duration: 552ms                                        │
+├──────────────────────────────────────────────────────────────────┤
+│ total data received: 38B (approx)                                │
+├──────────────────────────────────────────────────────────────────┤
+│ average response time: 102ms [min: 8ms, max: 372ms, s.d.: 155ms] │
+└──────────────────────────────────────────────────────────────────┘
 [Pipeline] }
 [Pipeline] // dir
 [Pipeline] }
-$ docker stop --time=1 f33cf2b01321a4f416e8a742d305aebc282eeb088a5d63bdbea1dd731daf9330
-$ docker rm -f f33cf2b01321a4f416e8a742d305aebc282eeb088a5d63bdbea1dd731daf9330
+$ docker stop --time=1 7abdf347d7dc0809a07b5e3ef312323f2f0e2cfa544ba58735d3834acd703817
+$ docker rm -f 7abdf347d7dc0809a07b5e3ef312323f2f0e2cfa544ba58735d3834acd703817
 [Pipeline] // withDockerContainer
+[Pipeline] }
+[Pipeline] // withEnv
 [Pipeline] }
 [Pipeline] // node
 [Pipeline] }
@@ -850,6 +983,8 @@ changed
 success
 [Pipeline] }
 [Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
 [Pipeline] }
 [Pipeline] // withEnv
 [Pipeline] }

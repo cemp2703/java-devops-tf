@@ -1,9 +1,9 @@
-Lanzada por el usuario admin
+Started by user admin
 Obtained JenkinsfileDeploy from git https://github.com/cemp2703/java-devops-tf.git
 Running in Durability level: MAX_SURVIVABILITY
 [Pipeline] Start of Pipeline
 [Pipeline] node
-Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-deployment
+Running on Jenkins in /var/lib/jenkins/workspace/java-devops-tf-deployment
 [Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Declarative: Checkout SCM)
@@ -14,14 +14,14 @@ Fetching changes from the remote Git repository
  > git config remote.origin.url https://github.com/cemp2703/java-devops-tf.git # timeout=10
 Fetching upstream changes from https://github.com/cemp2703/java-devops-tf.git
  > git --version # timeout=10
- > git fetch --tags --progress https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git fetch --tags --force --progress -- https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
  > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
-Checking out Revision a1503aa2ee64912ea7f70f2b86344fe289e7df8b (refs/remotes/origin/master)
+Checking out Revision a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 (refs/remotes/origin/master)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f a1503aa2ee64912ea7f70f2b86344fe289e7df8b # timeout=10
-Commit message: "cambios deploy"
- > git rev-list --no-walk d12d44b5501316a12503dd3bdd759d479759a6af # timeout=10
+ > git checkout -f a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 # timeout=10
+Commit message: "Actualizando README-MD"
+ > git rev-list --no-walk a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 # timeout=10
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -31,10 +31,38 @@ Commit message: "cambios deploy"
 [Pipeline] stage
 [Pipeline] { (Deploy stack backend)
 [Pipeline] sh
-+ ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/pems/kp_cesar_ohio.pem ec2-user@3.133.81.54 docker service update --image cemp2703/api-java-devops-tf:2 calculadora-stack_api
++ ssh -o StrictHostKeyChecking=no -i /var/lib/jenkins/pems/kp_cesar_ohio.pem ec2-user@13.58.236.175 'docker service update --image cemp2703/api-java-devops-tf:2 calculadora-stack_api'
 calculadora-stack_api
 overall progress: 0 out of 1 tasks
 1/1:  
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
 overall progress: 1 out of 1 tasks
 verify: Waiting 5 seconds to verify that tasks are stable...
 verify: Waiting 5 seconds to verify that tasks are stable...

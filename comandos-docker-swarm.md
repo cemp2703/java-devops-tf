@@ -1,5 +1,3 @@
-scp -i "kp_cesar_ohio.pem" docker-compose-stack-swarm.yml ec2-user@ec2-18-221-215-133.us-east-2.compute.amazonaws.com:/home/ec2-user
-
 ## Inicar docker swarm
 
 

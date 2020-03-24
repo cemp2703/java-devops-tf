@@ -1,9 +1,9 @@
-Lanzada por el usuario admin
+Started by user admin
 Obtained JenkinsfileBuild from git https://github.com/cemp2703/java-devops-tf.git
 Running in Durability level: MAX_SURVIVABILITY
 [Pipeline] Start of Pipeline
 [Pipeline] node
-Running on Jenkins  in /var/lib/jenkins/workspace/java-devops-tf-api-build
+Running on Jenkins in /var/lib/jenkins/workspace/java-devops-tf-build
 [Pipeline] {
 [Pipeline] stage
 [Pipeline] { (Declarative: Checkout SCM)
@@ -14,14 +14,14 @@ Fetching changes from the remote Git repository
  > git config remote.origin.url https://github.com/cemp2703/java-devops-tf.git # timeout=10
 Fetching upstream changes from https://github.com/cemp2703/java-devops-tf.git
  > git --version # timeout=10
- > git fetch --tags --progress https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git fetch --tags --force --progress -- https://github.com/cemp2703/java-devops-tf.git +refs/heads/*:refs/remotes/origin/* # timeout=10
  > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
  > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
-Checking out Revision cc86d79bcc9baf65fb9151657004d8e6132f960f (refs/remotes/origin/master)
+Checking out Revision a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 (refs/remotes/origin/master)
  > git config core.sparsecheckout # timeout=10
- > git checkout -f cc86d79bcc9baf65fb9151657004d8e6132f960f # timeout=10
-Commit message: "Agregando Jenkinsfile para Build Image"
- > git rev-list --no-walk cc86d79bcc9baf65fb9151657004d8e6132f960f # timeout=10
+ > git checkout -f a9a437446887209f5c4db3eaccc00ca8d8c5b6c9 # timeout=10
+Commit message: "Actualizando README-MD"
+First time build. Skipping changelog.
 [Pipeline] }
 [Pipeline] // stage
 [Pipeline] withEnv
@@ -32,51 +32,51 @@ Commit message: "Agregando Jenkinsfile para Build Image"
 [Pipeline] { (Build backend image)
 [Pipeline] sh
 + docker build -t cemp2703/api-java-devops-tf:2 .
-Sending build context to Docker daemon  222.7kB
+Sending build context to Docker daemon  9.426MB
 Step 1/15 : FROM maven:3.6.3-jdk-11-slim AS builder
  ---> 828766b5e113
 Step 2/15 : WORKDIR /app
  ---> Using cache
- ---> 87a9b2df99af
+ ---> b984bcf77170
 Step 3/15 : COPY pom.xml .
  ---> Using cache
- ---> 1846f7630beb
+ ---> 703e780c3966
 Step 4/15 : RUN mvn -B -e -C -T 1C org.apache.maven.plugins:maven-dependency-plugin:3.0.2:go-offline
  ---> Using cache
- ---> 8caf470f98ac
+ ---> 7cc0f54d73be
 Step 5/15 : COPY src ./src
  ---> Using cache
- ---> 6ac344b7e4fb
+ ---> 90431e3a9fe6
 Step 6/15 : RUN ls -la ./src
  ---> Using cache
- ---> 6ff7c66d599f
+ ---> 7e757cd9f9a7
 Step 7/15 : RUN mvn clean package -Dmaven.test.skip=true
  ---> Using cache
- ---> 7a8cc885f863
+ ---> 2e7adb53464d
 Step 8/15 : RUN ls -la /app
  ---> Using cache
- ---> 67aa26ca0921
+ ---> fa8c6b4a34de
 Step 9/15 : FROM openjdk:11.0.6-jdk
  ---> d29dd615eaf4
 Step 10/15 : LABEL maintainer="cemp2703@gmail.com"
  ---> Using cache
- ---> 9f1184eafb26
+ ---> af686c016d4a
 Step 11/15 : WORKDIR /workspace
  ---> Using cache
- ---> a1225fc1afd3
+ ---> 4b17d2a07579
 Step 12/15 : RUN ls -la /workspace
  ---> Using cache
- ---> 60f2fb6dfe27
+ ---> 2272d00ef813
 Step 13/15 : COPY --from=builder /app/target/mitocode-calculator*.jar app.jar
  ---> Using cache
- ---> 866e77c1bc77
+ ---> 09349dc63dd0
 Step 14/15 : RUN ls -la /workspace
  ---> Using cache
- ---> caa45aa92e85
+ ---> 9b8612069f5f
 Step 15/15 : ENTRYPOINT exec java -jar /workspace/app.jar
  ---> Using cache
- ---> 0b80642213e9
-Successfully built 0b80642213e9
+ ---> b61a300c8f8c
+Successfully built b61a300c8f8c
 Successfully tagged cemp2703/api-java-devops-tf:2
 [Pipeline] withCredentials
 Masking supported pattern matches of $USERNAME or $PASSWORD
@@ -92,8 +92,8 @@ Login Succeeded
 [Pipeline] sh
 + docker push ****/api-java-devops-tf:2
 The push refers to repository [docker.io/****/api-java-devops-tf]
-ffade17e16dc: Preparing
-d2f5351d1419: Preparing
+fabcfa64f661: Preparing
+b0cffb7ffebf: Preparing
 4186db990701: Preparing
 5b5fbf48ec75: Preparing
 832f129ebea4: Preparing
@@ -105,16 +105,16 @@ e70dfb4c3a48: Preparing
 c7f27a4eb870: Waiting
 e70dfb4c3a48: Waiting
 1c76bd0dc325: Waiting
-d2f5351d1419: Layer already exists
-ffade17e16dc: Layer already exists
 5b5fbf48ec75: Layer already exists
-832f129ebea4: Layer already exists
 4186db990701: Layer already exists
+832f129ebea4: Layer already exists
 6670e930ed33: Layer already exists
+e70dfb4c3a48: Layer already exists
+c7f27a4eb870: Layer already exists
 1c76bd0dc325: Layer already exists
-e70dfb4c3a48: Pushed
-c7f27a4eb870: Pushed
-2: digest: sha256:332d7691cdfd4a05e242ed67457ea0b9f98e2c646e304cab8a9fd38a095594cc size: 2213
+b0cffb7ffebf: Pushed
+fabcfa64f661: Pushed
+2: digest: sha256:5d89be7149f4f8b19fbf8425d12ff13f24be7829bb210c60492e032bf952f74f size: 2213
 [Pipeline] }
 [Pipeline] // withCredentials
 [Pipeline] }
