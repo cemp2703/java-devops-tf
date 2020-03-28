@@ -1,0 +1,109 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "ApplicationServer",
+    "Metadata": {},
+    "Parameters": {
+        "TipoInstancia": {
+            "Type": "String",
+            "Default": "t2.micro"
+        },
+        "IdImagen": {
+            "Type": "String",
+            "Default": "ami-0e01ce4ee18447327",
+            "AllowedValues": [ "ami-0e01ce4ee18447327"]
+        },
+        "KeyPairCustom": {
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        }
+    },
+    "Mappings": {},
+    "Conditions": {},
+    "Resources": {
+        "MiInstanciaPublica" : {
+            "Type" : "AWS::EC2::Instance",
+            "Properties" : {
+                "ImageId" : { "Ref": "IdImagen" },
+                "KeyName" : { "Ref": "KeyPairCustom" },
+                "InstanceType": { "Ref": "TipoInstancia" },
+                "SecurityGroupIds": [{ "Ref": "sgBastion"  }],
+                "Tags" : [
+                    {
+                        "Key":"Name",
+                        "Value": "ApplicationServer2"
+                    }
+                ],
+                "UserData": { "Fn::Base64" : { 
+                    "Fn::Join" : [
+                        "", [
+                            "#!/bin/bash -xe \n",
+                            "yum update -y \n",
+                            "yum remove java-1.7.0-openjdk -y \n",
+                            "yum install git -y \n",
+                            "yum install -y docker \n",
+                            "chkconfig docker on \n",
+                            "curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-$(uname -s)-$(uname -m) -o /usr/bin/docker-compose \n",
+                            "chmod +x /usr/bin/docker-compose \n",
+                            "service docker start \n",
+                            "usermod -a -G docker ec2-user \n",
+                            "wget https://raw.githubusercontent.com/cemp2703/java-devops-tf/master/docker-compose-stack-swarm.yml \n",
+                            "docker swarm init \n",
+                            "docker stack deploy --compose-file docker-compose-stack-swarm.yml calculadora-stack \n",
+                            "docker stack ls \n",
+                            "reboot"
+                            ]
+                        ]
+                    }
+                }
+            }
+        },
+        "sgBastion": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "seguridad para BASTION",
+                "SecurityGroupIngress": [
+                    {
+                        "IpProtocol": "TCP",
+                        "FromPort": "22",
+                        "ToPort": "22",
+                        "CidrIp": "0.0.0.0/0"
+                    },
+                    {
+                        "IpProtocol": "TCP",
+                        "FromPort": "80",
+                        "ToPort": "80",
+                        "CidrIp": "0.0.0.0/0"
+                    }
+                ],
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "sgBastion"
+                    }
+                ]
+            }
+        }
+    },
+    "Outputs": {
+        "IpPublica1": {
+            "Description": "Ip Publica de la instancia",
+            "Value": {
+                "Fn::GetAtt": [
+                    "MiInstanciaPublica",
+                    "PublicIp"
+                ]
+            }
+        },
+        "sgBastion": {
+            "Description": "Security Group de Ec2 en red publica",
+            "Value": {
+                "Fn::GetAtt": [
+                    "sgBastion",
+                    "GroupId"
+                ]
+            },
+            "Export": {
+                "Name": "infraestructura-sgBastion"
+            }
+        }
+    }
+}
