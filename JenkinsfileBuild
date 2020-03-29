@@ -17,5 +17,28 @@ pipeline {
            }
         }
     }
+
+    post {
+        always {
+            echo "Down ephemeral environment...."
+            sh "docker rmi -f ${INTERNAL_DOCKER_BACKEND}"
+        }
+
+        success {
+            echo "success"
+        }
+
+        unstable {
+            echo "unstable"
+        }
+
+        failure {
+            echo "failure"
+        }
+
+        changed {
+            echo "changed"
+        }
+    }
 }
 
